@@ -248,18 +248,27 @@ class PortfolioApp {
     }
 
     setupScrollAnimations() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        // Check if IntersectionObserver is supported
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, { 
+                threshold: 0.1,
+                rootMargin: '50px' // Trigger slightly before element enters viewport
             });
-        }, { threshold: 0.1 });
 
-        // Small delay to ensure DOM is fully rendered before observing
-        setTimeout(() => {
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        }, 100);
+            fadeElements.forEach(el => observer.observe(el));
+        } else {
+            // Fallback: just show all elements
+            fadeElements.forEach(el => el.classList.add('visible'));
+        }
     }
 
     async generatePDF() {
