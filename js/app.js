@@ -298,10 +298,8 @@ class PortfolioApp {
                 orientation: 'portrait' 
             },
             pagebreak: { 
-                mode: ['avoid-all', 'css', 'legacy'],
-                before: '.page-break-before',
-                after: '.page-break-after',
-                avoid: '.no-break, .pdf-job, .pdf-skill-group, .pdf-section'
+                mode: ['css', 'legacy'],
+                avoid: ['.pdf-job', '.pdf-header', '.pdf-edu', '.pdf-cert']
             }
         };
 
@@ -387,7 +385,7 @@ class PortfolioApp {
                 .no-break { page-break-inside: avoid; break-inside: avoid; }
             </style>
             <div class="pdf-container">
-                <div class="pdf-header no-break">
+                <div class="pdf-header">
                     <h1>${personal.name.first} ${personal.name.last}</h1>
                     <div class="title">${personal.title} | ${personal.tagline}</div>
                     <div class="contact">
@@ -398,7 +396,7 @@ class PortfolioApp {
                     </div>
                 </div>
 
-                <div class="pdf-section no-break">
+                <div class="pdf-section">
                     <h2>Professional Summary</h2>
                     ${about.paragraphs.map(p => `<p>${p}</p>`).join('')}
                 </div>
@@ -413,13 +411,13 @@ class PortfolioApp {
                             </div>
                             <div class="pdf-job-company">${job.company} | ${job.location}</div>
                             <ul>
-                                ${job.highlights.slice(0, 4).map(h => `<li>${h}</li>`).join('')}
+                                ${job.highlights.map(h => `<li>${h}</li>`).join('')}
                             </ul>
                         </div>
                     `).join('')}
                 </div>
 
-                <div class="pdf-section no-break">
+                <div class="pdf-section">
                     <h2>Technical Skills</h2>
                     <div class="pdf-skills">
                         ${skills.map(skill => `
@@ -431,7 +429,7 @@ class PortfolioApp {
                     </div>
                 </div>
 
-                <div class="pdf-section no-break">
+                <div class="pdf-section">
                     <h2>Certifications</h2>
                     <div class="pdf-certs">
                         ${certifications.map(cert => `
@@ -442,7 +440,7 @@ class PortfolioApp {
                     </div>
                 </div>
 
-                <div class="pdf-section no-break">
+                <div class="pdf-section">
                     <h2>Education</h2>
                     ${education.map(edu => `
                         <div class="pdf-edu">
