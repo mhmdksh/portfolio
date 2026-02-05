@@ -256,7 +256,10 @@ class PortfolioApp {
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        // Small delay to ensure DOM is fully rendered before observing
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }, 100);
     }
 
     async generatePDF() {
