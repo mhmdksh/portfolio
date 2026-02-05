@@ -29,6 +29,9 @@ class PortfolioApp {
     render() {
         const { personal, about, experience, skills, certifications, education, theme } = this.config;
 
+        // Remove loading state
+        this.container.classList.remove('loading');
+
         this.container.innerHTML = `
             <!-- Navigation -->
             <nav>
