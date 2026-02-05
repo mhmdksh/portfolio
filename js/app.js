@@ -350,32 +350,29 @@ class PortfolioApp {
                     display: grid; 
                     grid-template-columns: repeat(3, 1fr); 
                     gap: 8px;
-                    page-break-inside: avoid;
-                    break-inside: avoid;
                 }
                 .pdf-skill-group { 
-                    page-break-inside: avoid; 
-                    break-inside: avoid;
+                    margin-bottom: 5px;
                 }
                 .pdf-skill-group h3 { font-size: 9px; color: #1a1a2e; margin-bottom: 2px; }
                 .pdf-skill-group .tags { font-size: 8px; color: #666; line-height: 1.4; }
                 
                 /* Certifications */
                 .pdf-certs { 
-                    display: flex; 
-                    flex-wrap: wrap; 
-                    gap: 8px;
-                    page-break-inside: avoid;
-                    break-inside: avoid;
+                    display: block;
+                    margin-top: 5px;
                 }
-                .pdf-cert { font-size: 9px; }
+                .pdf-cert { 
+                    font-size: 9px; 
+                    margin-bottom: 5px;
+                    display: block;
+                }
                 .pdf-cert strong { color: #1a1a2e; }
                 
                 /* Education */
                 .pdf-edu { 
                     text-align: center;
-                    page-break-inside: avoid;
-                    break-inside: avoid;
+                    margin-top: 5px;
                 }
                 .pdf-edu h3 { font-size: 10px; color: #1a1a2e; }
                 .pdf-edu p { font-size: 9px; color: #666; }
