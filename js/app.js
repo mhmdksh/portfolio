@@ -297,7 +297,8 @@ class PortfolioApp {
                 orientation: 'portrait' 
             },
             pagebreak: { 
-                mode: 'legacy'
+                mode: 'css',
+                avoid: '.pdf-edu, .pdf-section-edu'
             }
         };
 
@@ -378,10 +379,12 @@ class PortfolioApp {
                 .pdf-cert strong { color: #1a1a2e; }
                 
                 /* Education - centered, keep together */
+                .pdf-section-edu {
+                    page-break-inside: avoid !important;
+                    break-inside: avoid !important;
+                }
                 .pdf-edu { 
                     margin-top: 5px;
-                    page-break-inside: avoid;
-                    break-inside: avoid;
                 }
                 .pdf-edu h3 { font-size: 10px; color: #1a1a2e; text-align: center; display: block; }
                 .pdf-edu p { font-size: 9px; color: #666; text-align: center; display: block; }
@@ -446,7 +449,7 @@ class PortfolioApp {
                     </div>
                 </div>
 
-                <div class="pdf-section">
+                <div class="pdf-section pdf-section-edu">
                     <h2>Education</h2>
                     ${education.map(edu => `
                         <div class="pdf-edu">
