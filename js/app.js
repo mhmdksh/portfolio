@@ -283,20 +283,26 @@ class PortfolioApp {
         const pdfContent = this.createPDFContent();
         
         const opt = {
-            margin: [10, 10, 10, 10],
+            margin: [10, 15, 10, 15],
             filename: `${personal.name.first}_${personal.name.last}_CV.pdf`,
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: { 
                 scale: 2,
                 useCORS: true,
-                letterRendering: true
+                letterRendering: true,
+                logging: false
             },
             jsPDF: { 
                 unit: 'mm', 
                 format: 'a4', 
                 orientation: 'portrait' 
             },
-            pagebreak: { mode: 'avoid-all' }
+            pagebreak: { 
+                mode: ['avoid-all', 'css', 'legacy'],
+                before: '.page-break-before',
+                after: '.page-break-after',
+                avoid: '.no-break, .pdf-job, .pdf-skill-group, .pdf-section'
+            }
         };
 
         try {
@@ -317,36 +323,71 @@ class PortfolioApp {
         container.innerHTML = `
             <style>
                 * { margin: 0; padding: 0; box-sizing: border-box; }
-                body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; line-height: 1.4; color: #333; }
-                .pdf-container { padding: 20px; max-width: 800px; }
-                .pdf-header { text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 3px solid #00f0ff; }
-                .pdf-header h1 { font-size: 28px; color: #1a1a2e; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; }
-                .pdf-header .title { font-size: 14px; color: #00f0ff; font-weight: 600; }
-                .pdf-header .contact { font-size: 10px; color: #666; margin-top: 10px; }
-                .pdf-header .contact span { margin: 0 10px; }
-                .pdf-section { margin-bottom: 20px; }
-                .pdf-section h2 { font-size: 14px; color: #ff2a6d; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #ff2a6d; padding-bottom: 5px; margin-bottom: 10px; }
-                .pdf-section p { margin-bottom: 8px; text-align: justify; }
-                .pdf-job { margin-bottom: 15px; page-break-inside: avoid; }
-                .pdf-job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
-                .pdf-job-title { font-weight: 700; font-size: 12px; color: #1a1a2e; }
-                .pdf-job-date { font-size: 10px; color: #00f0ff; }
-                .pdf-job-company { font-size: 11px; color: #666; margin-bottom: 5px; }
-                .pdf-job ul { margin-left: 15px; }
-                .pdf-job li { margin-bottom: 3px; }
-                .pdf-skills { display: flex; flex-wrap: wrap; gap: 15px; }
-                .pdf-skill-group { flex: 1; min-width: 200px; }
-                .pdf-skill-group h3 { font-size: 11px; color: #1a1a2e; margin-bottom: 5px; }
-                .pdf-skill-group .tags { font-size: 10px; color: #666; }
-                .pdf-certs { display: flex; flex-wrap: wrap; gap: 10px; }
-                .pdf-cert { font-size: 10px; }
+                body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; line-height: 1.3; color: #333; }
+                .pdf-container { padding: 15px 20px; max-width: 800px; }
+                
+                /* Header */
+                .pdf-header { text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #00f0ff; }
+                .pdf-header h1 { font-size: 24px; color: #1a1a2e; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 2px; }
+                .pdf-header .title { font-size: 11px; color: #00f0ff; font-weight: 600; }
+                .pdf-header .contact { font-size: 9px; color: #666; margin-top: 8px; }
+                .pdf-header .contact span { margin: 0 8px; }
+                
+                /* Sections */
+                .pdf-section { margin-bottom: 12px; page-break-inside: avoid; }
+                .pdf-section h2 { font-size: 12px; color: #ff2a6d; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #ff2a6d; padding-bottom: 3px; margin-bottom: 8px; }
+                .pdf-section p { margin-bottom: 5px; text-align: justify; font-size: 9px; }
+                
+                /* Jobs */
+                .pdf-job { margin-bottom: 10px; page-break-inside: avoid; break-inside: avoid; }
+                .pdf-job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+                .pdf-job-title { font-weight: 700; font-size: 10px; color: #1a1a2e; }
+                .pdf-job-date { font-size: 9px; color: #00f0ff; }
+                .pdf-job-company { font-size: 9px; color: #666; margin-bottom: 3px; }
+                .pdf-job ul { margin-left: 12px; }
+                .pdf-job li { margin-bottom: 1px; font-size: 9px; }
+                
+                /* Skills - Grid layout for better space usage */
+                .pdf-skills { 
+                    display: grid; 
+                    grid-template-columns: repeat(3, 1fr); 
+                    gap: 8px;
+                    page-break-inside: avoid;
+                    break-inside: avoid;
+                }
+                .pdf-skill-group { 
+                    page-break-inside: avoid; 
+                    break-inside: avoid;
+                }
+                .pdf-skill-group h3 { font-size: 9px; color: #1a1a2e; margin-bottom: 2px; }
+                .pdf-skill-group .tags { font-size: 8px; color: #666; line-height: 1.4; }
+                
+                /* Certifications */
+                .pdf-certs { 
+                    display: flex; 
+                    flex-wrap: wrap; 
+                    gap: 8px;
+                    page-break-inside: avoid;
+                    break-inside: avoid;
+                }
+                .pdf-cert { font-size: 9px; }
                 .pdf-cert strong { color: #1a1a2e; }
-                .pdf-edu { text-align: center; }
-                .pdf-edu h3 { font-size: 12px; color: #1a1a2e; }
-                .pdf-edu p { font-size: 10px; color: #666; }
+                
+                /* Education */
+                .pdf-edu { 
+                    text-align: center;
+                    page-break-inside: avoid;
+                    break-inside: avoid;
+                }
+                .pdf-edu h3 { font-size: 10px; color: #1a1a2e; }
+                .pdf-edu p { font-size: 9px; color: #666; }
+                
+                /* Page break helpers */
+                .page-break-before { page-break-before: always; break-before: always; }
+                .no-break { page-break-inside: avoid; break-inside: avoid; }
             </style>
             <div class="pdf-container">
-                <div class="pdf-header">
+                <div class="pdf-header no-break">
                     <h1>${personal.name.first} ${personal.name.last}</h1>
                     <div class="title">${personal.title} | ${personal.tagline}</div>
                     <div class="contact">
@@ -357,7 +398,7 @@ class PortfolioApp {
                     </div>
                 </div>
 
-                <div class="pdf-section">
+                <div class="pdf-section no-break">
                     <h2>Professional Summary</h2>
                     ${about.paragraphs.map(p => `<p>${p}</p>`).join('')}
                 </div>
@@ -372,13 +413,13 @@ class PortfolioApp {
                             </div>
                             <div class="pdf-job-company">${job.company} | ${job.location}</div>
                             <ul>
-                                ${job.highlights.map(h => `<li>${h}</li>`).join('')}
+                                ${job.highlights.slice(0, 4).map(h => `<li>${h}</li>`).join('')}
                             </ul>
                         </div>
                     `).join('')}
                 </div>
 
-                <div class="pdf-section">
+                <div class="pdf-section no-break">
                     <h2>Technical Skills</h2>
                     <div class="pdf-skills">
                         ${skills.map(skill => `
@@ -390,7 +431,7 @@ class PortfolioApp {
                     </div>
                 </div>
 
-                <div class="pdf-section">
+                <div class="pdf-section no-break">
                     <h2>Certifications</h2>
                     <div class="pdf-certs">
                         ${certifications.map(cert => `
@@ -401,7 +442,7 @@ class PortfolioApp {
                     </div>
                 </div>
 
-                <div class="pdf-section">
+                <div class="pdf-section no-break">
                     <h2>Education</h2>
                     ${education.map(edu => `
                         <div class="pdf-edu">
