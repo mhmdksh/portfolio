@@ -378,7 +378,7 @@ class PortfolioApp {
                 }
                 .pdf-cert strong { color: #1a1a2e; }
                 
-                /* Education - centered, keep together */
+                /* Education - left aligned, keep together */
                 .pdf-section-edu {
                     page-break-inside: avoid !important;
                     break-inside: avoid !important;
@@ -386,8 +386,8 @@ class PortfolioApp {
                 .pdf-edu { 
                     margin-top: 5px;
                 }
-                .pdf-edu h3 { font-size: 10px; color: #1a1a2e; text-align: center; display: block; }
-                .pdf-edu p { font-size: 9px; color: #666; text-align: center; display: block; }
+                .pdf-edu h3 { font-size: 10px; color: #1a1a2e; display: block; }
+                .pdf-edu p { font-size: 9px; color: #666; display: block; }
                 
                 /* Page break helpers */
                 .page-break-before { page-break-before: always; break-before: always; }
