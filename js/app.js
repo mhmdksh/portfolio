@@ -382,9 +382,10 @@ class PortfolioApp {
                 .pdf-edu { 
                     text-align: center;
                     margin-top: 5px;
+                    width: 100%;
                 }
-                .pdf-edu h3 { font-size: 10px; color: #1a1a2e; }
-                .pdf-edu p { font-size: 9px; color: #666; }
+                .pdf-edu h3 { font-size: 10px; color: #1a1a2e; text-align: center; }
+                .pdf-edu p { font-size: 9px; color: #666; text-align: center; }
                 
                 /* Page break helpers */
                 .page-break-before { page-break-before: always; break-before: always; }
