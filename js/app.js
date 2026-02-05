@@ -283,13 +283,12 @@ class PortfolioApp {
         const pdfContent = this.createPDFContent();
         
         const opt = {
-            margin: [10, 15, 10, 15],
+            margin: [15, 15, 15, 15],
             filename: `${personal.name.first}_${personal.name.last}_CV.pdf`,
-            image: { type: 'jpeg', quality: 0.98 },
+            image: { type: 'jpeg', quality: 0.95 },
             html2canvas: { 
                 scale: 2,
                 useCORS: true,
-                letterRendering: true,
                 logging: false
             },
             jsPDF: { 
@@ -298,8 +297,7 @@ class PortfolioApp {
                 orientation: 'portrait' 
             },
             pagebreak: { 
-                mode: ['css', 'legacy'],
-                avoid: ['.pdf-job', '.pdf-header', '.pdf-edu', '.pdf-cert']
+                mode: 'legacy'
             }
         };
 
@@ -345,28 +343,39 @@ class PortfolioApp {
                 .pdf-job ul { margin-left: 12px; }
                 .pdf-job li { margin-bottom: 1px; font-size: 9px; }
                 
-                /* Skills - Grid layout for better space usage */
+                /* Skills - Simple inline layout */
                 .pdf-skills { 
-                    display: grid; 
-                    grid-template-columns: repeat(3, 1fr); 
-                    gap: 8px;
+                    display: block;
                 }
                 .pdf-skill-group { 
-                    margin-bottom: 5px;
+                    display: inline;
                 }
-                .pdf-skill-group h3 { font-size: 9px; color: #1a1a2e; margin-bottom: 2px; }
-                .pdf-skill-group .tags { font-size: 8px; color: #666; line-height: 1.4; }
+                .pdf-skill-group h3 { 
+                    display: inline;
+                    font-size: 9px; 
+                    color: #1a1a2e; 
+                    font-weight: bold;
+                }
+                .pdf-skill-group h3::after { content: ': '; }
+                .pdf-skill-group .tags { 
+                    display: inline;
+                    font-size: 9px; 
+                    color: #666; 
+                }
+                .pdf-skill-group .tags::after { content: ' | '; }
+                .pdf-skill-group:last-child .tags::after { content: ''; }
                 
                 /* Certifications */
                 .pdf-certs { 
                     display: block;
                     margin-top: 5px;
+                    font-size: 9px;
                 }
                 .pdf-cert { 
-                    font-size: 9px; 
-                    margin-bottom: 5px;
-                    display: block;
+                    display: inline;
                 }
+                .pdf-cert::after { content: ' | '; }
+                .pdf-cert:last-child::after { content: ''; }
                 .pdf-cert strong { color: #1a1a2e; }
                 
                 /* Education */
