@@ -365,27 +365,24 @@ class PortfolioApp {
                 .pdf-skill-group .tags::after { content: ' | '; }
                 .pdf-skill-group:last-child .tags::after { content: ''; }
                 
-                /* Certifications */
+                /* Certifications - each on its own line */
                 .pdf-certs { 
                     display: block;
                     margin-top: 5px;
-                    font-size: 9px;
                 }
                 .pdf-cert { 
-                    display: inline;
+                    display: block;
+                    font-size: 9px;
+                    margin-bottom: 3px;
                 }
-                .pdf-cert::after { content: ' | '; }
-                .pdf-cert:last-child::after { content: ''; }
                 .pdf-cert strong { color: #1a1a2e; }
                 
-                /* Education */
+                /* Education - centered */
                 .pdf-edu { 
-                    text-align: center;
                     margin-top: 5px;
-                    width: 100%;
                 }
-                .pdf-edu h3 { font-size: 10px; color: #1a1a2e; text-align: center; }
-                .pdf-edu p { font-size: 9px; color: #666; text-align: center; }
+                .pdf-edu h3 { font-size: 10px; color: #1a1a2e; text-align: center; display: block; }
+                .pdf-edu p { font-size: 9px; color: #666; text-align: center; display: block; }
                 
                 /* Page break helpers */
                 .page-break-before { page-break-before: always; break-before: always; }
