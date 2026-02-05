@@ -377,9 +377,11 @@ class PortfolioApp {
                 }
                 .pdf-cert strong { color: #1a1a2e; }
                 
-                /* Education - centered */
+                /* Education - centered, keep together */
                 .pdf-edu { 
                     margin-top: 5px;
+                    page-break-inside: avoid;
+                    break-inside: avoid;
                 }
                 .pdf-edu h3 { font-size: 10px; color: #1a1a2e; text-align: center; display: block; }
                 .pdf-edu p { font-size: 9px; color: #666; text-align: center; display: block; }
