@@ -1,0 +1,228 @@
+# ============================================
+# PORTFOLIO CONFIGURATION
+# Edit this file to update your portfolio
+# ============================================
+
+# Personal Information
+personal:
+  name:
+    first: "Mohamad"
+    last: "Shehab"
+  title: "DevSecOps Consultant"
+  tagline: "Cloud Architect // AI Integration Specialist // Web3 Engineer"
+  summary: |
+    building reliable, scalable, and secure infrastructure for mission-critical systems.
+  status: "System Online // Available for Contracts"
+  
+  contact:
+    email: "mohamadkhodorshehab@gmail.com"
+    phone: "+971 50 215 8862"
+    linkedin:
+      url: "https://linkedin.com/in/mohammad-khodor-shehab"
+      display: "mohammad-khodor-shehab"
+    website:
+      url: "https://mohamadshehab.net"
+      display: "mohamadshehab.net"
+
+# About Section
+about:
+  title: "A Decade of Building & Scaling"
+  paragraphs:
+    - |
+      A Tech Professional, AI Integration Specialist, Cloud Solution Architect, Web3 Enthusiast, 
+      and Automation addict working in multinational IT services companies, managing the full 
+      spectrum of IT Services and Cloud Solutions.
+    - |
+      My experience derives from years working on Mission Critical Systems, helping create 
+      reliable Cloud Solutions, and using my IT Administration and Automation skills. Continuously 
+      upgrading both soft and technical skills to enhance capabilities and grow as a professional.
+  
+  stats:
+    - value: "10+"
+      label: "Years Active"
+    - value: "5"
+      label: "Corps"
+    - value: "3"
+      label: "Certs"
+    - value: "7+"
+      label: "Cloud Platforms"
+
+# Work Experience
+experience:
+  - role: "DevSecOps Consultant"
+    company: "Infosysta DWC LLC"
+    location: "UAE"
+    period: "Aug 2025 → Present"
+    highlights:
+      - "Consult on digital transformation for government entities"
+      - "Conduct maturity assessments on teams adopting DevSecOps principles"
+      - "Present DevSecOps to clients and identify key areas for collaboration"
+      - "Draw DevSecOps implementation plans and share with project stakeholders"
+      - "Liaise between teams to identify pain points preventing agile development"
+      - "Present different adoption approaches and deliver POCs to stakeholders"
+
+  - role: "Solution Architect"
+    company: "Rekt Studios"
+    location: "UAE"
+    period: "Apr 2024 → Aug 2025"
+    highlights:
+      - "Created full release process for Blockchain Gaming ecosystem on AWS — shipped 3 Online PvP Games"
+      - "Built monitoring stack using Grafana, Prometheus, Loki & Fluentbit"
+      - "Implemented AWS infrastructure using ECS, ECR, CloudFront, Route53, Secret Manager, S3, RDS, SES"
+      - "Created HA IaC setup using Terraform — reduced provisioning from hours to seconds"
+      - "Automated release process through CI/CD Pipelines using GitHub Actions"
+      - "Implemented secret management using HashiCorp Vault — reduced human error by 90%"
+
+  - role: "DevOps Team Lead"
+    company: "General Magic"
+    location: "UAE"
+    period: "Mar 2022 → Aug 2025"
+    highlights:
+      - "Developed AI-powered Discord Bot using Python (LangChain) and OpenAI API"
+      - "Built Web3 grant recommendation AI Agent using JavaScript, Twitter/Telegram APIs, ElizaOS"
+      - "Architected Microservices and Kubernetes Infrastructure for DAO products"
+      - "Migrated services to Kubernetes for zero-downtime deployments"
+      - "Developed CI/CD Pipelines for automated testing, building, security-scanning and deployment"
+      - "Created 1-click apps for communities using IaC and Configuration Management"
+
+  - role: "IT Systems Analyst"
+    company: "IDEMIA"
+    location: "UAE"
+    period: "Apr 2018 → Feb 2022"
+    highlights:
+      - "Managed mission-critical solutions for border control across 15+ sites"
+      - "Integrated scalable Kubernetes application for deployment & monitoring"
+      - "Reduced system management times by 90% through automation"
+      - "Helped clients achieve 99% uptime as per SLAs"
+      - "Liaised with Networking, SRE and Security teams for incident management"
+
+  - role: "IT Administrator & Infrastructure Owner"
+    company: "Infosysta"
+    location: "UAE"
+    period: "Jun 2016 → Mar 2018"
+    highlights:
+      - "Managed Cloud Infrastructure of 30+ servers with ~30,000 subscribers"
+      - "Reduced integration time from 3 days to 15 minutes — cutting costs by 90%"
+      - "Developed containerized images increasing testing efficiency"
+      - "Architected on-premises-to-cloud migration procedures"
+      - "Automated backup/restoration using Bash scripting and Ansible"
+      - "Mitigated cyber attacks through infrastructure hardening"
+
+# Skills Section
+skills:
+  - category: "Cloud Platforms"
+    icon: "☁️"
+    items:
+      - "AWS"
+      - "GCP"
+      - "Azure"
+      - "Digital Ocean"
+      - "Linode"
+      - "Vultr"
+      - "Hetzner"
+
+  - category: "Containers & Orchestration"
+    icon: "🐳"
+    items:
+      - "Docker"
+      - "Docker Compose"
+      - "Kubernetes"
+      - "Helm"
+      - "Nomad"
+
+  - category: "CI/CD & IaC"
+    icon: "🔄"
+    items:
+      - "GitHub Actions"
+      - "TravisCI"
+      - "Terraform"
+      - "Ansible"
+
+  - category: "Monitoring & Observability"
+    icon: "📊"
+    items:
+      - "Grafana"
+      - "Prometheus"
+      - "Loki"
+      - "Fluentbit"
+      - "ELK Stack"
+      - "OpenTelemetry"
+      - "Tempo"
+
+  - category: "AI & Automation"
+    icon: "🤖"
+    items:
+      - "LangChain"
+      - "ElizaOS"
+      - "Local LLMs"
+      - "OpenAI API"
+
+  - category: "Programming & Scripting"
+    icon: "💻"
+    items:
+      - "JavaScript"
+      - "Python"
+      - "Java"
+      - "Bash"
+      - "SQL"
+      - "YAML"
+
+  - category: "Security & Secrets"
+    icon: "🔐"
+    items:
+      - "HashiCorp Vault"
+      - "AWS Secret Manager"
+      - "DevSecOps"
+
+  - category: "Web3 & Blockchain"
+    icon: "⛓️"
+    items:
+      - "IPFS"
+      - "Blockchain APIs"
+      - "Gnosis Safe"
+      - "EVM Scripting"
+      - "DAO Tools"
+
+  - category: "Databases & Web Stacks"
+    icon: "🗄️"
+    items:
+      - "MySQL"
+      - "PostgreSQL"
+      - "MongoDB"
+      - "Oracle"
+      - "Nginx"
+      - "Node.js"
+      - "Caddy"
+
+# Certifications
+certifications:
+  - name: "Certified Kubernetes Administrator"
+    issuer: "CNCF"
+    year: "2019"
+    icon: "☸️"
+
+  - name: "Certified Terraform Associate"
+    issuer: "HashiCorp"
+    year: "2021"
+    icon: "🏗️"
+
+  - name: "Azure Fundamentals (AZ-900)"
+    issuer: "Microsoft"
+    year: "2020"
+    icon: "☁️"
+
+# Education
+education:
+  - degree: "Bachelor's Degree in Information & Communication Technology"
+    institution: "American University of Science & Technology"
+    period: "2011 → 2016"
+
+# Theme Settings (optional customization)
+theme:
+  colors:
+    primary: "#00f0ff"      # Cyan
+    secondary: "#ff2a6d"    # Magenta
+    accent: "#fcee0a"       # Yellow
+    background: "#0a0a0f"   # Dark
+  footer_text: "Built in Night City with too much synthwave and YAML"
+  copyright_year: "2077"
